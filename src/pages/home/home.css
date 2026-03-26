@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.st1{
+    /* alphabetically sort */
+    background-color: rgb(121, 121, 13);
+    border: 5px solid red;
+    /* border-radius: 50%; */
+    color: rgb(89, 227, 89);
+}
+
+.wd{
+    width: 50%;
+}
+
+.parent{
+    position: relative;
+}
+.ch{
+    position: absolute;
+    top: 2%;
+    left: 48%;
+    background-color: black;
+    color: yellow;
+}
+
+.padding{
+    background-color: green;
+    margin: 50px;
+    padding: 50px;
+}
+
+.btnStyles{
+    background-color: aqua;
+    color: cadetblue;
+    padding: 2%;
+    margin: auto 50%;
+}
+
+.btnStyles:hover{
+    background-color: rgb(33, 227, 227);
+    color: rgb(45, 106, 108);
+    cursor: pointer;
+}
