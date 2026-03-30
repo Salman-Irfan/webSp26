@@ -1,13 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="./admin.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    <p id="news">This is the admin page.</p>
-    <button id="updateBtn">update news</button>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<script type="module" src="./admin.js"></script>
+		<title>Admin Dashboard</title>
+	</head>
+
+	<body>
+		<nav>
+			<a href="../../../index.html">User</a>
+			<a href="./admin.html">Admin</a>
+		</nav>
+		<h2>Trainer Panel - Customize Fitness Form</h2>
+
+		<input type="text" id="fieldName" placeholder="Enter field name" />
+
+		<select id="fieldType">
+			<option value="text">Text</option>
+			<option value="number">Number</option>
+			<option value="time">Time</option>
+		</select>
+
+		<button id="addFieldBtn">Add Field</button>
+
+		<h3>Current Fields:</h3>
+		<ul id="fieldList"></ul>
+
+		<button id="saveBtn">Save Configuration</button>
+	</body>
 </html>

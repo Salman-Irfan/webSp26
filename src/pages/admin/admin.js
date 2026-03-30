@@ -1,18 +1,51 @@
-let count = 1
+let formConfig = {}; // start empty
 
-const news = document.getElementById("news")
-news.innerHTML = `<h1>News Section</h1>`  
+const fieldList = document.getElementById("fieldList");
+const addFieldBtn = document.getElementById("addFieldBtn");
+const saveBtn = document.getElementById("saveBtn");
 
+// 🔹 Render
+const renderFields = () => {
+	fieldList.innerHTML = "";
 
-news.innerHTML = `<h1>News Section updated ${count} times</h1>`
+	Object.keys(formConfig).forEach((key) => {
+		const li = document.createElement("li");
 
+		li.textContent = `${key} (${formConfig[key]})`;
 
-const updateBtn = document.getElementById("updateBtn")
-console.log(updateBtn)
+		const delBtn = document.createElement("button");
+		delBtn.textContent = "Delete";
 
-const handleUpdate = () => {
-    count++
-    news.innerHTML = `<h1>News Section updated ${count} times</h1>`
-}
+		// ✅ Proper event binding (NO inline JS)
+		delBtn.addEventListener("click", () => {
+			delete formConfig[key];
+			renderFields();
+		});
 
-updateBtn.addEventListener("click", handleUpdate)
+		li.appendChild(delBtn);
+		fieldList.appendChild(li);
+	});
+};
+
+// 🔹 CREATE
+const addField = () => {
+	const name = document.getElementById("fieldName").value.trim();
+	const type = document.getElementById("fieldType").value;
+
+	if (!name) return alert("Field name required");
+
+	formConfig[name] = type;
+	renderFields();
+};
+
+// 🔹 SAVE
+const saveConfig = () => {
+	localStorage.setItem("fitnessConfig", JSON.stringify(formConfig));
+	alert("Saved!");
+};
+
+// 🔹 Events
+addFieldBtn.addEventListener("click", addField);
+saveBtn.addEventListener("click", saveConfig);
+
+renderFields();
